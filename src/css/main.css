@@ -1,26 +1,56 @@
-body{
-    background-color: #0e0e11;
-    color: #EEEDFE;
+body {
+  background-color: #0e0e11;
+  color: #eeedfe;
 }
-.target{
-    display: flex;
-    flex-direction: row;
+.target {
+  display: flex;
+  flex-direction: row;
 }
-.target-container{
-    padding: 10px;
-    margin-top: 50px;
-    margin-left: 50px;
-    width: 250px;
-    height: 200px;
-    background-color: #16161c;
-    border-radius: 20px;
-    text-align: center;
-    transition: all 0.5s ease-in-out;
+.target-container {
+  padding: 10px;
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 250px;
+  height: 200px;
+  background-color: #16161c;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
 }
-.target-container:hover{
-    background-color: #2d2d2d;
-    cursor: pointer;
+.target-container:hover {
+  scale: calc(1.03);
+  background-color: #2d2d2d;
+  box-shadow: 1px 1px 10px 1px #494955;
+  cursor: pointer;
 }
-.text-target{
-    font-size: 1.4rem;
+.text-target {
+  font-size: 1.4rem;
+}
+.navbar-main {
+  width: 100dvw;
+  height: 5dvh;
+  border-bottom: 1px solid #eeedfe;
+}
+.navbar-main ul {
+  text-decoration: none;
+  overflow: hidden;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.navbar-main ul li {
+  float: left;
+}
+.navbar-main ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 16px;
+  text-decoration: none;
+  transition: all 0.6s ease-in-out;
+}
+.navbar-main ul li a:hover {
+  text-decoration: underline;
+  font-size: 17px;
 }
