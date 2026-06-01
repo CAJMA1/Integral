@@ -63,3 +63,27 @@ body {
 .navbar-main ul li a.active{
   background: #7F77DD;
 }
+.container-calculator{
+  width: 400px;
+  height: 800px;
+  background-color: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 30px;
+  padding: 30px;
+}
+.container-button{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+.InputPreview{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px 30px 25px;
+  height: 150px;
+  width: 350px;
+  background-color: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.01);
+  border-radius: 30px;
+}
