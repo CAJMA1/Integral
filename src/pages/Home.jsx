@@ -1,20 +1,25 @@
 import { useState } from "react";
 import { InputNumber } from "../components/InputNumber";
+import Algebrite from "algebrite"
 import { RenderMath } from "../components/RenderMath";
 import { i } from "mathjs";
 export function Home() {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("")
+  const [result, setResult] = useState("")
+  const [isLocked, setLocked] = useState(false)
   return (
     <>
       <h1 className="tittle tittle-main">Calculadora de integrales</h1>
       <div className="container-calculator">
-        
+
         <div className="InputPreview" >
-            <RenderMath formula={input}/>
+          <RenderMath formula="\int" />
+          <RenderMath formula={input} />
+          {result && (
+            <RenderMath formula={`=${result} + C`} />)}
         </div>
 
         <div className="container-button">
-          <InputNumber character="\int" onClick={handleInputSelect} />
           <InputNumber character="+" onClick={handleInputSelect} />
           <InputNumber character="-" onClick={handleInputSelect} />
           <InputNumber character="*" onClick={handleInputSelect} />
@@ -32,20 +37,37 @@ export function Home() {
           <InputNumber character="8" onClick={handleInputSelect} />
           <InputNumber character="9" onClick={handleInputSelect} />
           <InputNumber character="0" onClick={handleInputSelect} />
-
+          <InputNumber character="cos(x)" onClick={handleInputSelect} />
+          <InputNumber character="sin(x)" onClick={handleInputSelect} />
+          <InputNumber character="tan(x)" onClick={handleInputSelect}/>
           <InputNumber character="C" onClick={clear} />
           <InputNumber character="<-" onClick={deleteLastCharacter} />
+          <InputNumber character="=" onClick={calculateIntegral} />
         </div>
       </div>
     </>
   );
   function handleInputSelect(character) {
-    setInput((prev) => prev + character + " ");
+    if (isLocked) return
+
+    setInput((prev) => prev + character);
   }
   function clear() {
-    setInput("");
+    setResult("")
+    setInput("")
+    setLocked(false)
   }
-  function deleteLastCharacter(){
-    setInput((prev) => prev.slice(0,-2))
+  function deleteLastCharacter() {
+    setInput((prev) => prev.slice(0, -1))
+  }
+  function calculateIntegral() {
+    if (input && input.trim() !== "") {
+      const integral = Algebrite.run(`integral(${input},x)`)
+      const latex = Algebrite.run(`printlatex(${integral})`)
+      console.log(integral)
+      console.log(latex)
+      setResult(latex)
+      setLocked(true)
+    }
   }
 }

@@ -11,6 +11,16 @@ export function Formulas(){
             id:2,
             name: "Integral de x",
             formula: "\\int x dx"
+        },
+        {
+            id:3,
+            name: "Integral de seno",
+            formula: "\\int sin(x)"
+        },
+        {
+            id:4,
+            name: "Integral de coseno",
+            formula: "\\int cos(x)"
         }
     ]
     return(
