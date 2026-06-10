@@ -7,6 +7,8 @@ export function Target({ integral }) {
         <div className="target-container">
           <p className="text-target">{integral.name}</p>
           <RenderMath formula={integral.formula} />
+          <p>Solucion</p>
+          <RenderMath formula={`${integral.solucion} + C`} />
         </div>
       </section>
     </>
